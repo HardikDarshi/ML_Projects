@@ -33,6 +33,7 @@ def index():
             final_sheet = pd.merge(df, result, left_index = True, right_index = True)
             print('final sheet is prepared')
             final_sheet.to_excel(r'C:\Users\CNU23895TK\PycharmProjects\REDRT2\uploads\outputfile.xlsx', index = True, header = True)
+            print('file saved to path') 
             #final_sheet.save(os.path.join("uploads", final_sheet.filename))
             return 'Output file is saved to uploads folder'
         except Exception as e:
