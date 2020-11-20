@@ -32,7 +32,7 @@ def index():
             result = preprocessor.int_to_categorical(result)
             final_sheet = pd.merge(df, result, left_index = True, right_index = True)
             print('final sheet is prepared')
-            final_sheet.to_excel('https://github.com/HardikDarshi/ML_Projects/tree/Master/uploads/outputfile.xlsx', index = True, header = True)
+            final_sheet.to_excel('https://github.com/HardikDarshi/ML_Projects/tree/Master/outputfile.xlsx', index = True, header = True)
             #final_sheet.save(os.path.join("uploads", final_sheet.filename))
             return 'Output file is saved to uploads folder'
         except Exception as e:
