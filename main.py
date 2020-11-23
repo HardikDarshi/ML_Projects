@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, make_response
 import pandas as pd
 import pickle
 
@@ -32,8 +32,12 @@ def index():
             result = preprocessor.int_to_categorical(result)
             final_sheet = pd.merge(df, result, left_index = True, right_index = True)
             print('final sheet is prepared')
-            final_sheet.to_excel(r'C:\Users\CNU23895TK\PycharmProjects\REDRT2\uploads\outputfile.xlsx', index = True, header = True)
-            print('file saved to path') 
+            resp = make_response(final_sheet.to_csv())
+            resp.headers["Content-Disposition"] = "attachment; filename=export.csv"
+            resp.headers["Content-Type"] = "text/csv"
+            return resp
+            #final_sheet.to_excel(r'C:\Users\CNU23895TK\PycharmProjects\REDRT2\uploads\outputfile.xlsx', index = True, header = True)
+            #print('file saved to path') 
             #final_sheet.save(os.path.join("uploads", final_sheet.filename))
             return 'Output file is saved to uploads folder'
         except Exception as e:
