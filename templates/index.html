@@ -1,14 +1,26 @@
 <html>
-
+<head>
  <title>Search Page</title>
-   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+
+  <link rel="stylesheet" type = 'text/css' href= "{{ url_for('static', filename='css/style.css') }}">
+    <!-- <link rel="stylesheet" href="C:\Users\CNU23895TK\PycharmProjects\REDRT2\static\css\style.css">-->
+</head>
 <body>
  <div class="content">
-    <h1 style="text-align: center">Please find attached Result</h1>
+    <h1>Let's Do Audit of REDRT Object the CITY</h1>
+
+
  </div>
- <form method = "post" enctype="multipart/form-data">
-    <input type = 'file' name = "file1"/>
-    <input type = 'submit' name = "Submit">
+ <form method = "post" enctype="multipart/form-data" class="bg">
+  <p>Please Upload file</p>
+    <input type = 'file' name = "file1" class="choosefile">
+<br>
+    <input type = 'submit' name = "Submit" class="submitbtn">
  </form>
+
+<h3>Prepared By : Hardik Patel </h3>
+
 </body>
 </html>
