@@ -4,12 +4,12 @@
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
 
-  <link rel="stylesheet" type='text/css' href= "{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" type = 'text/css' href= "{{ url_for('static', filename='css/style.css') }}">
     <!-- <link rel="stylesheet" href="C:\Users\CNU23895TK\PycharmProjects\REDRT2\static\css\style.css">-->
 </head>
 <body>
  <div class="content">
-    <h1>Let's Do Audit of REDRT Object the CITY</h1>
+    <h1>Let's Do Audit of REDRT Object of CITY Area</h1>
 
 
  </div>
@@ -20,6 +20,11 @@
     <input type = 'submit' name = "Submit" class="submitbtn">
  </form>
 
+  <form method = "post" enctype="multipart/form-data" class="bg">
+  <p>Please click on below link to download reference file</p>
+<a href= "{{url_for('downlaod_reffile')}}" class = "Downloadbtn"> Download </a>
+  </form>
+<br>
 <h3>Prepared By : Hardik Patel </h3>
 
 </body>
