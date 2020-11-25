@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, make_response
+from flask import Flask, render_template, request, make_response, send_file
 import pandas as pd
 import pickle
+import os
 
 import Preprocessing
 
@@ -36,17 +37,23 @@ def index():
             resp.headers["Content-Disposition"] = "attachment; filename=export.csv"
             resp.headers["Content-Type"] = "text/csv"
             return resp
+            #final_sheet1= final_sheet.to_excel(r'C:\Users\CNU23895TK\PycharmProjects\REDRT2\uploads\outputfile.xlsx', index=True, header= True)
             #final_sheet.to_excel(r'C:\Users\CNU23895TK\PycharmProjects\REDRT2\uploads\outputfile.xlsx', index = True, header = True)
-            #print('file saved to path') 
-            #final_sheet.save(os.path.join("uploads", final_sheet.filename))
-            return 'Output file is saved to uploads folder'
+            #final_sheet1.save(os.path.join("uploads", final_sheet1.filename))
+
+            #return 'Output file is saved to uploads folder'
         except Exception as e:
             print('The Exception  message is:', e)
             return 'Something is Wrong'
     else:
         return render_template('index.html')
 
+@app.route('/download')
+def downlaod_reffile():
+    p= 'reference_file.xlsx'
+    return send_file(p, as_attachment= True)
 
 if __name__ == '__main__':
     #app.run(debug = True)
-    app.run(host='127.0.0.1', port=5001, debug=True)
+    #app.run(host='127.0.0.1', port=5001, debug=True)
+    app.run(host='0.0.0.0', port=8000, debug=True)
